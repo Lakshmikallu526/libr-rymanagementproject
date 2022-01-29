@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Menu </title>
+    <style type="text/css">
+      html, body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+ 
+html {
+    margin: 0;
+    background: url(background.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+ 
+#content {
+    display: block;
+    padding: 10px;
+    width: 50%;
+    min-height: 90vh;
+    margin: auto;
+    background-color: lightgoldenrodyellow;
+    border-radius: 1px;
+    box-shadow: 0 0 0 1px #f7e0d4;
+}
+ 
+h3 {
+    margin: 0;
+}
+ 
+h3, th {
+    color: #d36612;
+}
+ 
+h4 {
+    text-align: center;
+}
+ 
+hr {
+    display: block;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+    border-color: #d36612;
+}
+table {
+    border-collapse: collapse;
+    margin: auto;
+    width: 100%;
+}
+th, td {
+    text-align: left;
+}
+tbody tr {
+    border-bottom: 1px solid #d36612;
+}
+tbody tr:hover {
+    background-color: #f7e0d4;
+}
+td:nth-child(1) {
+    width: 5%;
+}
+td:nth-child(2) {
+    width: 75%;
+}
+td:nth-child(3), td:nth-child(4) {
+    width: 10%;
+}
+</style>
+<script type="text/javascript">      
+      var cart = [];
+      var items = [
+        {id: 1, name: "Java", price: 1800},
+        {id: 2, name: "Python", price: 2000},
+        {id: 3, name: "C", price: 1500},
+        {id: 4, name: "C++", price: 1600 }
+      ];
+      function getItemById(id){
+        for(var i = 0; i < items.length; i++)
+        {
+          if (items[i].id == id)
+            return items[i];
+        }
+        return null;
+      }
+      function display() {
+        var cartDisplay = document.getElementById("cart");
+        var totalPrice = 0;
+        if (cart.length == 0)
+        {
+          cartDisplay.innerHTML = "<tr><td colspan=4>No articles found.</td></tr>";
+          document.getElementById("totalPrice").innerHTML = "" + totalPrice.toFixed(2);
+          return;
+        }
+        cartDisplay.innerHTML = "";
+        for(var i = 0; i < cart.length; i++)
+        {
+          var row = "<td>"+(i + 1)+"</td> <td>"+cart[i].name+"</td> <td>"+cart[i].price+"</td> <td><button onclick=\"del("+ i +")\">Delete</button></td>"
+          cartDisplay.innerHTML += "<tr>" + row + "</tr>";
+          totalPrice += cart[i].price;
+        }
+       
+        document.getElementById("totalPrice").innerHTML = " " + totalPrice.toFixed(2);
+      }
+     
+      function add(id) {
+        cart.push(getItemById(id));
+       
+        display();
+      }
+     
+      function del(index){
+        cart.splice(index, 1);
+        display();
+      }
+      function init() {
+        var itemsDisplay = document.getElementById("items");
+        itemsDisplay.innerHTML = "";
+        for(var i = 0; i < items.length; i++)
+        {
+          var row = "<td>"+(i + 1)+"</td> <td>"+items[i].name+"</td> <td> "+items[i].price+"</td> <td><button onclick=\"add(" + items[i].id + " )\">Add</button></td>"
+          itemsDisplay.innerHTML += "<tr>" + row + "</tr>";
+        }
+        display();
+      }
+    </script>
+  </head>
+  <body>
+    <div id="content">
+    <h3><center><b>Book Store</b></center></h3>
+        <h4>List of Books</h4>
+    <div>
+      <table id="options">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Name of Book</th>
+            <th>Price of Book</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="items"></tbody>
+      </table>    
+    </div>
+    <hr/>
+    <h4>Added</h4>
+    <div>
+      <table id="list">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Name of Book</th>
+            <th>Price of Book</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="cart"></tbody>
+        <tfoot>
+          <tr>
+            <td></td>
+            <td>Total</td>
+            <td id="totalPrice"></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    </div>
+      <script type="text/javascript">
+      init();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,128 @@
+body {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color:#444444;
+    background-color:#fff;
+    font-weight:bold;
+}
+
+.logo {
+    background-image:url('logo.png');
+    width:86px;
+    height:28px;
+    border:0;
+    display:inline-block;
+    background-repeat:no-repeat;
+    margin-top:10px;
+}
+
+.top_line_head{
+    height:55px;
+    width:100%;
+    line-height:53px;
+}
+
+.navigation{
+    float:right;
+    width:515px;
+}
+
+.item{
+    text-decoration:none;
+    color:#444444;
+    width:100px;
+    display:inline-block;
+    text-align:center;
+    -webkit-transition: 0.5s; /* Safari */
+    transition: 0.5s;
+}
+
+.clear {
+    clear:both;
+    clear:all;
+}
+
+.item:hover{
+    color:#f34949;
+    -webkit-transition: 0.5s; /* Safari */
+    transition: 0.5s;
+}
+
+.container {
+    max-width:1097px;
+    margin:0px auto;
+}
+
+.header{
+    background:url('header.png')center;
+    width:1500px;
+    max-width:100%;
+    height:570px;
+    margin:0px auto;
+    background-type:cover;
+}
+
+.header_line {
+    height:5px;
+    width:100%;
+    background-color:#f34949;
+}
+
+.web_title {
+    background-image:url('page_title.png');
+    width:155px;
+    height:70px;
+    margin:0px auto;
+    color:#fff;
+    text-align:center;
+    line-height:55px;
+}
+
+.dish_group {
+    width:230px;
+    display:inline-block;
+}
+
+.dish_group_spacer{
+    width:52px;
+    display:inline-block;
+}
+
+.price{
+    text-align:right;
+    float:right;
+    
+}
+
+.footer {
+    background-color:#3b3b3b;
+    height:130px;
+    width:100%;
+    padding-top:50px;
+    background-repeat:no-repeat;
+}
+
+.footer_group{
+    display:inline-block;
+    color:#fff;
+    width:250px;
+    vertical-align: text-top;
+}
+
+.footer_group a{
+    text-decoration:none;
+    color:#fff;
+    -webkit-transition: 0.5s; /* Safari */
+    transition: 0.5s;
+}
+.footer_group a:hover{
+    color:#f34949;
+    -webkit-transition: 0.5s; /* Safari */
+    transition: 0.5s;
+}
+
+h3 {
+    text-transform:uppercase;
+}
